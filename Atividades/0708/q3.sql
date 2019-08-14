@@ -1,0 +1,1 @@
+SELECT pnumero, pjnome, plocalizacao FROM projeto;

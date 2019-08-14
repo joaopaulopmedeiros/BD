@@ -1,0 +1,1 @@
+SELECT nome_dependente FROM dependente WHERE parentesco = "cônjuge";

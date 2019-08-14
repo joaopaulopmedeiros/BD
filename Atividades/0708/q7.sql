@@ -1,0 +1,1 @@
+SELECT pnome FROM empregado WHERE salario >= 30000;

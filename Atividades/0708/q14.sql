@@ -1,0 +1,1 @@
+SELECT * FROM empregado WHERE salario BETWEEN 38000 AND 43000;
