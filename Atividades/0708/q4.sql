@@ -1,1 +1,0 @@
-SELECT ssn, pnome, DATE_FORMAT(datanasc,'%d-%m-%Y') FROM empregado WHERE sexo="M";

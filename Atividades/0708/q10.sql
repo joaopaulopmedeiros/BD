@@ -1,1 +1,0 @@
-SELECT * FROM empregado WHERE endereco LIKE "%Houston%";

@@ -1,1 +1,0 @@
-SELECT pnome FROM empregado WHERE pnome LIKE 'J%';

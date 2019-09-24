@@ -1,1 +1,0 @@
-SELECT pjnome FROM projeto WHERE plocalizacao = "Stafford";
