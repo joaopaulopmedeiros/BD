@@ -309,13 +309,13 @@ FROM empregado as e
 WHERE  e.dno <> dept.dnumero;
 
 -- 41. Selecione o ssn e nome dos empregados que têm um casal de filhos
-SELECT e.ssn, e.pnome, depn.qtd_dependente
+SELECT e.ssn, e.pnome 
 FROM empregado as e
 	INNER JOIN (
-		SELECT d.essn, d.parentesco, d.nome_dependente, d.sexo, COUNT(d.essn) AS qtd_dependente
-	    FROM dependente as d
-	    GROUP BY d.essn
-	) as depn
-	ON (e.ssn = depn.essn)
-WHERE depn.parentesco <> 'cônjuge' AND qtd_dependente=2;
-
+		SELECT essn, nome_dependente, sexo, parentesco, COUNT(*) as qtd_dependente
+		FROM dependente 
+		WHERE parentesco = 'FILHO' OR parentesco = 'FILHA'
+		GROUP BY essn
+	) as d
+	ON(e.ssn = d.essn)
+WHERE d.qtd_dependente = 2;
