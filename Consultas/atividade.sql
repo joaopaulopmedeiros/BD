@@ -65,11 +65,11 @@ SELECT pnome
 FROM empregado
 WHERE salario BETWEEN 38000 AND 43000;
 
--- 15. Selecione o número do departamento e a quantidade de empregados por sexo.
-SELECT dno, COUNT(ssn) as qtd_empregado
-from empregado
-WHERE sexo = 'f'
-GROUP BY dno;
+-- q15 Selecione o número do departamento e a quantidade de empregados por sexo.
+SELECT e.dno, e.sexo, count(*)
+FROM empregado AS e
+GROUP BY e.dno,e.sexo;
+
 
 -- 16. Selecione o número do departamento e a quantidade de empregados por departamento.
 SELECT dno, COUNT(ssn)
