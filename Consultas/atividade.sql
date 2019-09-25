@@ -312,10 +312,17 @@ WHERE  e.dno <> dept.dnumero;
 SELECT e.ssn, e.pnome 
 FROM empregado as e
 	INNER JOIN (
-		SELECT essn, nome_dependente, sexo, parentesco, COUNT(*) as qtd_dependente
+		SELECT essn, nome_dependente, sexo, parentesco, COUNT(*) as qtd_dependenteHomem
 		FROM dependente 
-		WHERE parentesco = 'FILHO' OR parentesco = 'FILHA'
+		WHERE parentesco = 'FILHO'
 		GROUP BY essn
-	) as d
-	ON(e.ssn = d.essn)
-WHERE d.qtd_dependente = 2;
+	) as dm
+	ON(e.ssn = dm.essn)
+	INNER JOIN (
+		SELECT essn, nome_dependente, sexo, parentesco, COUNT(*) as qtd_dependenteMulher
+		FROM dependente 
+		WHERE parentesco = 'FILHA'
+		GROUP BY essn
+	) as df
+	ON(e.ssn = df.essn)
+WHERE dm.qtd_dependenteHomem + df.qtd_dependenteMulher = 2;
