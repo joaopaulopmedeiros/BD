@@ -325,5 +325,6 @@ FROM empregado as e
 		GROUP BY essn
 	) as df
 	ON(e.ssn = df.essn)
-WHERE dm.qtd_dependenteHomem + df.qtd_dependenteMulher > 1;
+WHERE dm.qtd_dependenteHomem >= 1 AND df.qtd_dependenteMulher >= 1;
+
 
